@@ -1,0 +1,426 @@
+{
+  "info": {
+    "name": "Facility Admins API",
+    "description": "API collection for managing facility admin assignments",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{auth_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "your-jwt-token-here",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Regular Endpoints",
+      "item": [
+        {
+          "name": "Create Facility Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": 1,\n  \"user_id\": 5,\n  \"assigned_at\": \"2025-01-15T10:00:00Z\",\n  \"is_active\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/facility-admins",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins"]
+            }
+          }
+        },
+        {
+          "name": "Update Facility Admin",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": 2,\n  \"user_id\": 6,\n  \"is_active\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Facility Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Facility Admin by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Facility Admins",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins"]
+            }
+          }
+        },
+        {
+          "name": "Get Facility Admins by Facility",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins/facility/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "facility", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Facility Admins by User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins/user/5",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "user", "5"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Facility Admins",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/facility-admins/active/list",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "active", "list"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Partner Endpoints",
+      "item": [
+        {
+          "name": "Partner - Create Facility Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": 1,\n  \"user_id\": 5,\n  \"assigned_at\": \"2025-01-15T10:00:00Z\",\n  \"is_active\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Update Facility Admin",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": 2,\n  \"user_id\": 6,\n  \"is_active\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Delete Facility Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Get Facility Admin by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Get All Facility Admins",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Get Facility Admins by Facility",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/facility/1",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "facility", "1"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Get Facility Admins by User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/user/5",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "user", "5"]
+            }
+          }
+        },
+        {
+          "name": "Partner - Get Active Facility Admins",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/partner/facility-admins/active/list",
+              "host": ["{{base_url}}"],
+              "path": ["partner", "facility-admins", "active", "list"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Test Examples",
+      "item": [
+        {
+          "name": "Test - Create with Minimal Data",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"facility_id\": 1,\n  \"user_id\": 5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/facility-admins",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins"]
+            }
+          }
+        },
+        {
+          "name": "Test - Deactivate Admin",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_active\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Test - Reactivate Admin",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_active\": true,\n  \"assigned_at\": \"2025-01-20T08:00:00Z\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/facility-admins/1",
+              "host": ["{{base_url}}"],
+              "path": ["facility-admins", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
